@@ -7,6 +7,7 @@ from codes.forms import CodeForm
 
 from accounts.models import CustomUser
 
+from .utils import send_otp
 
 # Create your views here.
 
@@ -37,8 +38,7 @@ def verify_view(request):
         code = user.codes
         code_user = f"{user.username}: {user.codes}"
         if not request.POST:
-            # send sms
-            print(code_user)
+            send_otp(code_user, user.phone_number)
         if form.is_valid():
             number = form.cleaned_data.get('number')
 
