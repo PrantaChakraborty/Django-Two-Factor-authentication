@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     #local
     'accounts.apps.AccountsConfig',
     'codes.apps.CodesConfig',
+    'home.apps.HomeConfig',
 ]
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
